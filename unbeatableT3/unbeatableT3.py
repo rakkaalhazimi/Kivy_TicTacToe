@@ -30,6 +30,14 @@ from .game_engine import (board, HUMAN, COMP, minimax, wins,
 board_state = board
 
 
+class MoveButton(Button):
+    pass
+
+
+class GameResult(Popup):
+    pass
+
+
 class StartScreen(Screen):
 
     def on_press(self, *args):
@@ -72,9 +80,9 @@ class GameBoard(GridLayout):
         self.cols = 3
         self.move = True
 
-        config = {"text":"-_-", "font_size":40, }
         self.btn_dict = {
-            x : Button(**config) for x in range(1,10)}
+            x : MoveButton() for x in range(1,10)
+        }
 
         for widget in self.btn_dict.values():
             self.add_widget(widget)
@@ -83,10 +91,6 @@ class GameBoard(GridLayout):
     def callback(self, button):
         root_widget = main_app.get_running_app().root
         root_widget.human_turn(board_state, button)
-
-
-class GameResult(Popup):
-    pass
 
 
 class RootScreen(ScreenManager):
@@ -177,12 +181,15 @@ class RootScreen(ScreenManager):
                 return key
 
     def render(self, state):
-        legend = {0: "-_-", 1: "X", -1: "O"}
+        legend = {0: "...", 1: "X", -1: "O"}
         flatten = [item for sublist in state for item in sublist]
 
         for button, symbol in zip(self.btn_dict.values(), flatten):
             button.text = legend[symbol]
             if button.text in ["X", "O"]:
+                button.disabled_color = [.9, .1, .1, 1] if button.text == "O" \
+                                        else [.1, .1, .9, 1]
+                button.strikethrought = 1
                 button.disabled = 1
             else:
                 button.disabled = 0
