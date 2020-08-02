@@ -17,6 +17,7 @@ To start the application, run:: python3 main.py
 
 # General Notes
 The application may be slow at the first turn because I didn't implement Alpha-Beta Pruning yet.
+Minimax Algorithm implementation is from https://github.com/Cledersonbc/tic-tac-toe-minimax
 
 # Author Notes
 Developing GUI with Kivy is not quite simple. The simple part is when I need to style my widgets using kivy language. 
