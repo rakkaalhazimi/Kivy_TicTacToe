@@ -1,6 +1,5 @@
 # Kivy_TicTacToe
 
-# Overview
 ![alt text](https://github.com/rakkaalhazimi/Kivy_TicTacToe/blob/master/UnbeatableT3.PNG)
 
 # Description
