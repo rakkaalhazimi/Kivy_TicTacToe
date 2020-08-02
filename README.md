@@ -8,7 +8,7 @@ Common Tic-Tac-Toe game using Minimax Algorithm for A.I and Kivy for the interfa
 # Authors
 Rakka Alhazimi, May 2020
 
-Requirements
+# Requirements
 * Python 3
 * Kivy
 
